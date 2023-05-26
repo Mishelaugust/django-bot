@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">tg id</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if users %}
+        {% for user in users %}
+        <tr>
+          <td><a href="{% url 'chat' user.id %}" class="link-dark">{{ user.id}}</a></td>
+          <td>{{ user.first_name}}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.created_at }}</td>
+
+        </tr>
+        {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<html>
+<head>
+    <title>Chating history</title>
+    <style>
+        .chat-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            overflow: auto;
+            max-height: 80vh;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+        }
+
+        .chat-message .user {
+            font-weight: bold;
+        }
+
+        .chat-message .timestamp {
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            justify-content: center;
+        }
+
+        .chat-message .question {
+            background-color: #eef7ff;
+        }
+
+        .chat-message .answer {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: right;
+        }
+        .chat-message .caption {
+            display: flex;
+            justify-content: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        {% if chats %}
+        <h1>Chating history</h1>
+        
+            {% for item in chats %}
+            <div class="chat-message">
+                <p class="timestamp">{{ item.timestamp }}</p>
+                {{users.username}}:<p class="question">{{ item.question }}</p>
+                <span class="caption">bot:</span> <p class="answer">{{ item.answer }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
+
+{% endblock %}
