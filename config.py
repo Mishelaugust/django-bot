@@ -8,7 +8,7 @@ DBNAME = 'usersdb'
 PASSWORD = '1234' 
 CURSORCLASS = pymysql.cursors.DictCursor
 
-TOKEN = '5848210560:AAHMXEoE6NP6ii5TiAmHk9hM8MapLxvjp0M'
+TOKEN = ''
 
 def initial_connection():
     try:
